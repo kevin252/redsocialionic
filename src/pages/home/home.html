@@ -1,0 +1,71 @@
+<ion-header >
+  <ion-navbar >
+    <ion-title>
+      
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item style="background-color: steelblue" >
+        <ion-avatar item-start>
+            <img [src]="base64Image">
+          </ion-avatar>
+          <button (click)="takePicture()" item-right style="border-radius: 1cm"><ion-icon name="camera">
+
+          </ion-icon></button>
+    </ion-item>
+          <h2>Kevin Cardenas Acevedo</h2>
+          <h4 style="opacity: 0.5">@kvin252</h4>
+    <button style="background-color: transparent">
+       <ion-icon  name="pin">
+        Colombia
+       </ion-icon>
+    </button>
+    <ion-row>
+      <ion-col>
+        <b>68</b> Gente que sigues
+      </ion-col>
+      <ion-col>
+          <b>14</b> Seguidores
+        </ion-col>
+    </ion-row>
+
+    <div padding>
+        <ion-segment [(ngModel)]="filter">
+          <ion-segment-button value="T">
+            Tweets
+          </ion-segment-button>
+          <ion-segment-button  value="TAA">
+            Tweets y Respuestas
+          </ion-segment-button>
+          <ion-segment-button value="M">
+              Multimedia
+            </ion-segment-button>
+        </ion-segment>
+      </div>
+      
+      <div [ngSwitch]="filter">
+        <ion-list *ngSwitchCase="'T'">
+          
+          ...
+        </ion-list>
+      
+        <ion-list *ngSwitchCase="'TAA'">
+          
+          ...
+        </ion-list>
+        <ion-list *ngSwitchCase="'M'">
+            <ion-item  >
+              <ion-row>
+                <ion-col col-3 *ngFor="let picture of pictures">
+                  <img [src]="picture.url">
+                </ion-col>
+              </ion-row>
+            </ion-item>
+            ...
+           
+          </ion-list>
+      </div>
+
+</ion-content>
